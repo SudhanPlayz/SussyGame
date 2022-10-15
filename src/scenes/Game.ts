@@ -3,6 +3,7 @@ import Phaser from "phaser";
 export class GameScene extends Phaser.Scene {
     public player: Phaser.Physics.Arcade.Sprite;
     public cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+    public speed = 100;
 
     constructor() {
         super({ key: "MainScene" });
@@ -85,11 +86,31 @@ export class GameScene extends Phaser.Scene {
     }
 
     update() {
-        //control this.player using this.cursors
         if (this.cursors.left.isDown) {
-            this.player.setVelocityX(-160);
+            this.player.setVelocityX(-this.speed);
             this.player.anims.play('left', true);
         }
-        
+        if (this.cursors.right.isDown) {
+            this.player.setVelocityX(this.speed);
+            this.player.anims.play('right', true);
+        }
+        if (this.cursors.down.isDown) {
+            this.player.setVelocityY(this.speed);
+            this.player.anims.play('down', true);
+        }
+        console.log(this.player.body.touching, this.player.body)
+        if (this.cursors.up.isDown) {
+            //check if this.player is touching the ground
+            this.player.setVelocityY(-this.speed * 3);
+            this.player.anims.play('up', true);
+        }
+        if (this.cursors.down.isUp &&
+            this.cursors.left.isUp &&
+            this.cursors.right.isUp &&
+            this.player.anims.isPlaying
+        ) {
+            this.player.setVelocityX(0);
+            this.player.anims.stop()
+        }
     }
 }
