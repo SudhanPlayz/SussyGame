@@ -1,0 +1,114 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/main.json",
+    "console.history": [
+        "cls",
+        "echo",
+        "hep",
+        "help",
+        "cmd",
+        "cmds",
+        "commands",
+        "help",
+        "clear",
+        "cls"
+    ],
+    "expandedProjectPaths": [
+        "chars",
+        "tiles",
+        ".",
+        "maps"
+    ],
+    "fileStates": {
+        "#dark_castle_tileset": {
+            "scaleInDock": 1
+        },
+        "chars/player.json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "maps/main.json": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 42.66666666666666,
+                "y": 292.3333333333333
+            }
+        },
+        "maps/main.json#dark_castle_tileset": {
+            "scaleInDock": 2
+        },
+        "maps/main.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 141.33333333333331,
+                "y": 130.66666666666663
+            }
+        },
+        "maps/main.tmx#a": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "maps/main.tmx#dark_castle_tileset": {
+            "scaleInDock": 1
+        },
+        "maps/main.tsx": {
+            "scale": 1.1439583333333332,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.39337097067934,
+                "y": 160.8450191222
+            }
+        },
+        "maps/main.tsx#dark_castle_tileset": {
+            "scaleInDock": 1
+        },
+        "tiles/Dirt.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiles/Grass.tsj": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "frame.defaultDuration": 300,
+    "last.exportedFilePath": "D:/Code/h2so4/assets/maps",
+    "last.imagePath": "D:/Code/h2so4/assets/chars",
+    "last.worldFilePath": "D:/Code/h2so4/assets/maps",
+    "loadedWorlds": [
+        "D:/Code/h2so4/assets/maps/main.world"
+    ],
+    "map.height": 38,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 50,
+    "openFiles": [
+        "chars/player.json",
+        "maps/main.json"
+    ],
+    "project": "test.tiled-project",
+    "recentFiles": [
+        "chars/player.json",
+        "maps/main.json",
+        "maps/main.tmx",
+        "maps/main.tsx",
+        "tiles/Grass.tsj",
+        "tiles/Dirt.tsj"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFormat": "json",
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    },
+    "tileset.type": 0
+}
