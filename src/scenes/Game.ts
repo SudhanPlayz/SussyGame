@@ -12,7 +12,7 @@ export class GameScene extends Phaser.Scene {
     preload() {
         this.load.image("tiles", "https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/853488449038581770/1030798917798989834/dark_castle_tileset.png");
         this.load.tilemapTiledJSON("map", "https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/853488449038581770/1030802194955518022/main.json");
-        this.load.atlas("player", "https://5005bo8grc2acq2thke1l2drmliu002qhup6jb3f2fvdntviggto320.siasky.net/player.png", "https://5005bo8grc2acq2thke1l2drmliu002qhup6jb3f2fvdntviggto320.siasky.net/player.json")
+        this.load.atlas("player", "https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/853488449038581770/1030860748026564700/player.png", "https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/853488449038581770/1030860747066069052/player.json")
     }
 
     create() {
@@ -21,13 +21,16 @@ export class GameScene extends Phaser.Scene {
         const base = map.createLayer("base", tileset, 0, 0);
         const background = map.createLayer("background", tileset, 0, 0);
         const misc = map.createLayer("misc", tileset, 0, 0);
+        const base2 = map.createLayer("base2", tileset, 0, 0);
 
         base.setCollisionByExclusion([-1], true)
+        base2.setCollisionByExclusion([-1], true)
 
-        this.player = this.physics.add.sprite(50, 10, 'player');
+        this.player = this.physics.add.sprite(50, 200, 'player');
         this.player.setBounce(0.1);
         this.player.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, base);
+        this.physics.add.collider(this.player, base2);
 
         this.anims.create({
             key: 'left',
@@ -82,7 +85,7 @@ export class GameScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setZoom(1.5);
+        this.cameras.main.setZoom(1.3);
     }
 
     update() {
@@ -95,13 +98,10 @@ export class GameScene extends Phaser.Scene {
             this.player.anims.play('right', true);
         }
         if (this.cursors.down.isDown) {
-            this.player.setVelocityY(this.speed);
             this.player.anims.play('down', true);
         }
-        console.log(this.player.body.touching, this.player.body)
-        if (this.cursors.up.isDown) {
-            //check if this.player is touching the ground
-            this.player.setVelocityY(-this.speed * 3);
+        if (this.cursors.up.isDown && this.player.body.onFloor()) {
+            this.player.setVelocityY(-this.speed * 3.5);
             this.player.anims.play('up', true);
         }
         if (this.cursors.down.isUp &&
