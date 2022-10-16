@@ -159,6 +159,7 @@ export class GameScene extends Phaser.Scene {
                 this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
                     this.wonText.destroy()
                     this.won = false;
+                    //@ts-ignore
                     this.wonText = null;
                     this.scene.restart();
                 })
