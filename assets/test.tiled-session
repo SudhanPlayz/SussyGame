@@ -23,6 +23,9 @@
         "maps"
     ],
     "fileStates": {
+        "": {
+            "scaleInDock": 2
+        },
         "#dark_castle_tileset": {
             "scaleInDock": 1
         },
@@ -39,7 +42,8 @@
             }
         },
         "maps/main.json#dark_castle_tileset": {
-            "scaleInDock": 2
+            "scaleInDock": 2,
+            "scaleInEditor": 1
         },
         "maps/main.tmx": {
             "scale": 1.5,
@@ -80,7 +84,7 @@
     },
     "frame.defaultDuration": 300,
     "last.exportedFilePath": "D:/Code/h2so4/assets/maps",
-    "last.imagePath": "D:/Code/h2so4/assets/chars",
+    "last.imagePath": "D:/Code/h2so4/assets",
     "last.worldFilePath": "D:/Code/h2so4/assets/maps",
     "loadedWorlds": [
         "D:/Code/h2so4/assets/maps/main.world"
@@ -107,8 +111,8 @@
     "tileset.embedInMap": true,
     "tileset.lastUsedFormat": "json",
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 8,
+        "width": 8
     },
     "tileset.type": 0
 }
