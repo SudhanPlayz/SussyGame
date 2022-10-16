@@ -6,6 +6,8 @@ export class GameScene extends Phaser.Scene {
     public speed = 150;
     public spawnPoint: Phaser.Types.Tilemaps.TiledObject;
     public finishPoint: Phaser.Types.Tilemaps.TiledObject;
+    public won: boolean = false;
+    public wonText: Phaser.GameObjects.Text;
 
     constructor() {
         super({ key: "MainScene" });
@@ -26,7 +28,10 @@ export class GameScene extends Phaser.Scene {
 
         map.objects.find(x => x.name == "texts")?.objects.forEach(obj => {
             //@ts-ignore
-            this.add.text(obj.x, obj.y, obj.text.text, obj.text);
+            this.add.text(obj.x, obj.y, obj.text.text, {
+                ...obj.text,
+                shadow: { color: "black", blur: 5, offsetX: 2, offsetY: 2 }
+            });
         })
 
         this.spawnPoint = map.findObject("points", obj => obj.name === "spawn");
@@ -109,6 +114,15 @@ export class GameScene extends Phaser.Scene {
     }
 
     update() {
+        if (this.won) {
+            if (!this.wonText) {
+                this.wonText = this.add.text(this.player.x, this.player.y - 50, "You won!", { color: "white", fontSize: "40px", shadow: { color: "black", blur: 5, offsetX: 2, offsetY: 2 } });
+                this.wonText.setOrigin(0.5);
+            }
+            this.wonText.setX(this.player.x);
+            this.wonText.setY(this.player.y - 50);
+        }
+
         //movements
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-this.speed);
@@ -136,7 +150,19 @@ export class GameScene extends Phaser.Scene {
 
         //@ts-ignore
         if (this.player.x >= this.finishPoint.x - 30 && this.player.x <= this.finishPoint.x + 30 && this.player.y >= this.finishPoint.y - 30 && this.player.y <= this.finishPoint.y + 30) {
-            console.log("yey")
+            this.won = true;
+            this.player.setX(300)
+            this.player.setY(300)
+            this.cameras.main.shake(500);
+            setTimeout(() => {
+                this.cameras.main.fade(3000);
+                this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                    this.wonText.destroy()
+                    this.won = false;
+                    this.wonText = null;
+                    this.scene.restart();
+                })
+            }, 3000)
         }
     }
 }
