@@ -3,7 +3,7 @@ import Phaser from "phaser";
 export class GameScene extends Phaser.Scene {
     public player: Phaser.Physics.Arcade.Sprite;
     public cursors: Phaser.Types.Input.Keyboard.CursorKeys;
-    public speed = 300;
+    public speed = 150;
     public spawnPoint: Phaser.Types.Tilemaps.TiledObject;
     public finishPoint: Phaser.Types.Tilemaps.TiledObject;
 
@@ -93,7 +93,7 @@ export class GameScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setZoom(1.3);
+        this.cameras.main.setZoom(1.5);
 
         //Custom func
         //@ts-ignore
@@ -122,7 +122,7 @@ export class GameScene extends Phaser.Scene {
             this.player.anims.play('down', true);
         }//@ts-ignore
         if (this.cursors.up.isDown && this.player.body.onFloor()) {
-            this.player.setVelocityY(-this.speed * 3.5);
+            this.player.setVelocityY(-this.speed * 3);
             this.player.anims.play('up', true);
         }
         if (this.cursors.down.isUp &&
@@ -134,7 +134,7 @@ export class GameScene extends Phaser.Scene {
             this.player.anims.stop()
         }
 
-        //collisions
+        //@ts-ignore
         if (this.player.x >= this.finishPoint.x - 30 && this.player.x <= this.finishPoint.x + 30 && this.player.y >= this.finishPoint.y - 30 && this.player.y <= this.finishPoint.y + 30) {
             console.log("yey")
         }
