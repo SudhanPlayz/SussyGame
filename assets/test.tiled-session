@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/main.json",
+    "activeFile": "",
     "console.history": [
         "cls",
         "echo",
@@ -17,10 +17,9 @@
         "cls"
     ],
     "expandedProjectPaths": [
-        "chars",
-        "tiles",
+        "maps",
         ".",
-        "maps"
+        "tiles"
     ],
     "fileStates": {
         "": {
@@ -34,15 +33,15 @@
             "scaleInEditor": 1
         },
         "maps/main.json": {
-            "scale": 3,
+            "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 42.66666666666666,
-                "y": 292.3333333333333
+                "x": 130,
+                "y": 144.72727272727272
             }
         },
         "maps/main.json#dark_castle_tileset": {
-            "scaleInDock": 2,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "maps/main.tmx": {
@@ -96,13 +95,11 @@
     "map.tileWidth": 16,
     "map.width": 50,
     "openFiles": [
-        "chars/player.json",
-        "maps/main.json"
     ],
     "project": "test.tiled-project",
     "recentFiles": [
-        "chars/player.json",
         "maps/main.json",
+        "chars/player.json",
         "maps/main.tmx",
         "maps/main.tsx",
         "tiles/Grass.tsj",

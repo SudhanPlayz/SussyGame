@@ -3,7 +3,7 @@ import Phaser from "phaser";
 export class GameScene extends Phaser.Scene {
     public player: Phaser.Physics.Arcade.Sprite;
     public cursors: Phaser.Types.Input.Keyboard.CursorKeys;
-    public speed = 150;
+    public speed = 100;
     public spawnPoint: Phaser.Types.Tilemaps.TiledObject;
     public finishPoint: Phaser.Types.Tilemaps.TiledObject;
     public won: boolean = false;
@@ -44,6 +44,7 @@ export class GameScene extends Phaser.Scene {
         this.player.setBounce(0.1);
         this.player.setCollideWorldBounds(true);
         this.physics.add.collider(this.player, base);
+        this.player.body.setSize(15, 30)
 
         this.anims.create({
             key: 'left',
@@ -136,7 +137,7 @@ export class GameScene extends Phaser.Scene {
             this.player.anims.play('down', true);
         }//@ts-ignore
         if (this.cursors.up.isDown && this.player.body.onFloor()) {
-            this.player.setVelocityY(-this.speed * 3);
+            this.player.setVelocityY(-this.speed * 4);
             this.player.anims.play('up', true);
         }
         if (this.cursors.down.isUp &&
